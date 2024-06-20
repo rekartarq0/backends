@@ -45,6 +45,9 @@ class User extends Authenticatable
     public function quantity(){
         return $this->hasMany(Quantity::class);
     }
+    public function table(){
+        return $this->hasMany(Table::class);
+    }
 
     // Appends relationship
     public function getCreatedAtRelableAttribute()

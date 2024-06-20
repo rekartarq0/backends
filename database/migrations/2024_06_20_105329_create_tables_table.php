@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quantities', function (Blueprint $table) {
+        Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('food_id')->nullable()->constrained('food')->onDelete('set null');
-            $table->integer('quantity');
-            $table->date('expire_date')->nullable();
+            $table->integer('table_number');
+            $table->integer('seating_capacity');
+            $table->string('status')->default('1')->comment('1:available 2:occupied 3:reserved');
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quantities');
+        Schema::dropIfExists('tables');
     }
 };

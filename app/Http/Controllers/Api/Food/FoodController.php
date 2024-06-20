@@ -44,7 +44,7 @@ class FoodController extends Controller
     }
     public function edit($id)
     {
-        $food = auth()->user()->food()->select('id', 'name_en', 'name_ckb', 'name_ar', 'image', 'category_id', 'is_available')->findOrfail($id);
+        $food = auth()->user()->food()->select('id', 'name_en', 'name_ckb', 'name_ar', 'image', 'category_id', 'is_available','price')->with('category:id,name_en')->findOrfail($id);
         return response()->json([
             'data' => $food
         ], 200);

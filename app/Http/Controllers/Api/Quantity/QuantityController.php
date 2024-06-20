@@ -40,7 +40,7 @@ class QuantityController extends Controller
     }
     public function edit($id)
     {
-        $food = auth()->user()->quantity()->select('id', 'quantity', 'food_id')->findOrfail($id);
+        $food = auth()->user()->quantity()->select('id', 'quantity', 'food_id','expire_date')->with('food:id,name_en')->findOrfail($id);
         return response()->json([
             'data' => $food
         ], 200);

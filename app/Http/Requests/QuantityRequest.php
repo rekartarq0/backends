@@ -24,6 +24,7 @@ class QuantityRequest extends FormRequest
         return [
             'quantity' => 'required|integer',
             'food_id' => 'required|exists:food,id|numeric',
+            'expire_date' => 'required|date',
         ];
     }
     protected function failedValidation($validator)
