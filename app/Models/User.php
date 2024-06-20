@@ -35,18 +35,26 @@ class User extends Authenticatable
         return $this->belongsTo(User::class);
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->hasMany(Category::class);
     }
 
-    public function food(){
+    public function food()
+    {
         return $this->hasMany(Food::class);
     }
-    public function quantity(){
+    public function quantity()
+    {
         return $this->hasMany(Quantity::class);
     }
-    public function table(){
+    public function table()
+    {
         return $this->hasMany(Table::class);
+    }
+    public function reservation()
+    {
+        return $this->hasMany(Reservations::class);
     }
 
     // Appends relationship

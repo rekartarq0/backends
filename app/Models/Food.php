@@ -23,6 +23,9 @@ class Food extends Model
     public function quantity(){
         return $this->hasMany(Quantity::class);
     }
+    public function reservation(){
+        return $this->hasMany(Reservations::class);
+    }
     public function user(){
         return $this->belongsTo(User::class);
     }
