@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum'])->group(
         
         Route::get('food-category-input',[FoodController::class,'category_input']);
         Route::resource('quantity', QuantityController::class);
+        Route::get('quantity-input',[QuantityController::class,'quantity_input']);
         Route::post('/quantity-update/{id}', [QuantityController::class,'update'])->name('quantity-update');
     }
 );

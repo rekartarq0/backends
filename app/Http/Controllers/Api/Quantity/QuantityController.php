@@ -68,4 +68,11 @@ class QuantityController extends Controller
             'message' => 'quantity deleted successfully',
         ], 200);
     }
+    public function quantity_input()
+    {
+        $categories = auth()->user()->quantity()->select('id', 'food_id')->with('food:id,name_en')->get();
+        return response()->json([
+            'data' => $categories
+        ], 200);
+    }
 }
